@@ -14,6 +14,7 @@ import com.rmartinezm.codewithus.animesdatabase.Interfaces.MainPresenter;
 import com.rmartinezm.codewithus.animesdatabase.Interfaces.MainView;
 import com.rmartinezm.codewithus.animesdatabase.Model.AnimeContract.AnimeEntry;
 import com.rmartinezm.codewithus.animesdatabase.Model.AnimeDbHelper;
+import com.rmartinezm.codewithus.animesdatabase.Model.BundleAuxClass;
 import com.rmartinezm.codewithus.animesdatabase.Presenter.MainPresenterImpl;
 import com.rmartinezm.codewithus.animesdatabase.R;
 
@@ -33,11 +34,8 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
         progressBar = (ProgressBar) findViewById(R.id.main_progressbar);
         presenter = new MainPresenterImpl(this);
 
-        // Inicializamos nuestra lista con el JSON que recibimos del SplashScreen
-        Bundle bundle = getIntent().getExtras();
-        if (bundle == null)
-            finish();
-        presenter.initialiceList(bundle.getString("jsonList").trim());
+        // Inicializamos nuestra lista con el JSON que guardamos en BundleAuxClass del SplashScreen
+        presenter.initialiceList(BundleAuxClass.json);
 
 
         recyclerView = (RecyclerView) findViewById(R.id.main_recyclerview);

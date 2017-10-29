@@ -12,6 +12,7 @@ import com.google.gson.GsonBuilder;
 import com.rmartinezm.codewithus.animesdatabase.Interfaces.SplashScreenPresenter;
 import com.rmartinezm.codewithus.animesdatabase.Interfaces.SplashScreenView;
 import com.rmartinezm.codewithus.animesdatabase.Model.Anime;
+import com.rmartinezm.codewithus.animesdatabase.Model.BundleAuxClass;
 import com.rmartinezm.codewithus.animesdatabase.Presenter.SplashScreenPresenterImpl;
 import com.rmartinezm.codewithus.animesdatabase.R;
 
@@ -40,7 +41,7 @@ public class SplashScreenActivity extends AppCompatActivity implements SplashScr
     public void navigateToMainActivity(LinkedList<Anime> list) {
         String jsonList = new GsonBuilder().create().toJson(list);
         Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("jsonList", jsonList);
+        BundleAuxClass.json = jsonList;
         startActivity(intent);
         finish();
     }
