@@ -3,6 +3,7 @@ package com.rmartinezm.codewithus.animesdatabase.View.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -15,10 +16,6 @@ import com.rmartinezm.codewithus.animesdatabase.Model.AnimeContract.AnimeEntry;
 import com.rmartinezm.codewithus.animesdatabase.Model.AnimeDbHelper;
 import com.rmartinezm.codewithus.animesdatabase.Presenter.MainPresenterImpl;
 import com.rmartinezm.codewithus.animesdatabase.R;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements MainView, View.OnClickListener {
 
@@ -70,14 +67,14 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
     public void onClick(View v) {
         switch (v.getId()){
 
-            // TODO
             case R.id.main_fab_add:
+
                 AnimeDbHelper dbHelper = new AnimeDbHelper(this);
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
 
                 ContentValues values = new ContentValues();
                 values.put(AnimeEntry.NAME, "Shigatsu wa kimi no uso");
-                values.put(AnimeEntry.IMAGE, "jafdl");
+                values.put(AnimeEntry.IMAGE, "https://www.koi-nya.net/img/subidos_posts/2014/08/Goose-House-se-encargar%C3%A1-del-opening-de-Shigatsu-wa-Kimi-no-Uso.jpg");
                 values.put(AnimeEntry.SEASONS, "1");
                 values.put(AnimeEntry.EPISODES, "22");
                 values.put(AnimeEntry.WATCHED_EPISODES, "22");
