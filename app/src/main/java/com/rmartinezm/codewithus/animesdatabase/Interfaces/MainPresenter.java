@@ -9,8 +9,7 @@ import java.util.LinkedList;
 
 public interface MainPresenter {
 
-    void initialiceList(String jsonString);
-    LinkedList<Anime> getList();
+    void setList(LinkedList<Anime> list);
     void setAdapter(RecyclerView recyclerView);
-
+    void addNewAnime(String name, String image, String seasons, String episodes, String watchedEpisodes, float rating);
 }

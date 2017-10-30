@@ -5,13 +5,14 @@ import com.rmartinezm.codewithus.animesdatabase.Interfaces.SplashScreenInteracto
 import com.rmartinezm.codewithus.animesdatabase.Interfaces.SplashScreenPresenter;
 import com.rmartinezm.codewithus.animesdatabase.Interfaces.SplashScreenView;
 import com.rmartinezm.codewithus.animesdatabase.Model.Anime;
-
-import java.util.LinkedList;
+import com.rmartinezm.codewithus.animesdatabase.Model.BundleAuxClass;
+import com.rmartinezm.codewithus.animesdatabase.View.Activity.SplashScreenActivity.DataCallback;
 
 public class SplashScreenPresenterImpl implements SplashScreenPresenter {
 
     private SplashScreenView view;
     private SplashScreenInteractor interactor;
+    private DataCallback callback;
 
     public SplashScreenPresenterImpl(SplashScreenView view){
         this.view = view;
@@ -19,9 +20,14 @@ public class SplashScreenPresenterImpl implements SplashScreenPresenter {
     }
 
     @Override
-    public void initialiceData() {
-        LinkedList<Anime> list = interactor.readDatabase(view.getContext());
-        view.navigateToMainActivity(list);
+    public void initialiceData(DataCallback callback) {
+        this.callback = callback;
+        BundleAuxClass.list = interactor.readDatabase(view.getContext());
+    }
+
+    @Override
+    public void navigateToMainActivity() {
+        callback.onComplete();
     }
 
     @Override
@@ -35,5 +41,7 @@ public class SplashScreenPresenterImpl implements SplashScreenPresenter {
                 .rating(Float.parseFloat(rating))
                 .build();
     }
+
+
 
 }

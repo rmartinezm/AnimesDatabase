@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="4dp">
+        <EditText
+            android:id="@+id/add_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre"
+            android:inputType="textPersonName" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="4dp">
+        <EditText
+            android:id="@+id/add_seasons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Temporadas"
+            android:inputType="number" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="4dp">
+        <EditText
+            android:id="@+id/add_episodes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Episodios"
+            android:inputType="number" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="4dp">
+        <EditText
+            android:id="@+id/add_watched_episodes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Episodios vistos"
+            android:inputType="number" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="8dp">
+        <EditText
+            android:id="@+id/add_urlImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="URL Imagen del anime"
+            android:inputType="textUri" />
+    </android.support.design.widget.TextInputLayout>
+
+    <RatingBar
+        android:id="@+id/add_rating_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"/>
+
+</LinearLayout>

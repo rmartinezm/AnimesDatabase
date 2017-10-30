@@ -4,8 +4,7 @@ import android.content.Context;
 
 public interface MainView {
 
-    void showProgressBar();
-    void hideProgressBar();
+    void showErrorAdd();
     Context getContext();
 
 }

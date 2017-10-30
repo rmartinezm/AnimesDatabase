@@ -1,7 +1,9 @@
 package com.rmartinezm.codewithus.animesdatabase.Model;
 
+import java.util.LinkedList;
+
 public class BundleAuxClass {
 
-    public static String json;
+    public static LinkedList<Anime> list;
 
 }

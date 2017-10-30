@@ -9,6 +9,5 @@ import java.util.LinkedList;
 public interface SplashScreenView {
 
     Context getContext();
-    void navigateToMainActivity(LinkedList<Anime> list);
 
 }

@@ -73,7 +73,7 @@ public class SplashScreenInteractorImpl implements SplashScreenInteractor {
                         )
                 );
         }
-
+        presenter.navigateToMainActivity();
         return list;
     }
 }

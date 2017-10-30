@@ -2,8 +2,11 @@ package com.rmartinezm.codewithus.animesdatabase.View.Activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -27,8 +30,21 @@ public class SplashScreenActivity extends AppCompatActivity implements SplashScr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        presenter = new SplashScreenPresenterImpl(this);
-        presenter.initialiceData();
+        presenter = new SplashScreenPresenterImpl(SplashScreenActivity.this);
+        presenter.initialiceData(new DataCallback(){
+            @Override
+            public void onComplete() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        findViewById(R.id.splashscreen_progressBar).setVisibility(View.INVISIBLE);
+                        Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }, 1200);
+            }
+        });
 
     }
 
@@ -37,12 +53,8 @@ public class SplashScreenActivity extends AppCompatActivity implements SplashScr
         return this;
     }
 
-    @Override
-    public void navigateToMainActivity(LinkedList<Anime> list) {
-        String jsonList = new GsonBuilder().create().toJson(list);
-        Intent intent = new Intent(this, MainActivity.class);
-        BundleAuxClass.json = jsonList;
-        startActivity(intent);
-        finish();
+    public interface DataCallback {
+        void onComplete();
     }
+
 }
